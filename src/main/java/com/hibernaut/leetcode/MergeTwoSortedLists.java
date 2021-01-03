@@ -30,31 +30,15 @@ public class MergeTwoSortedLists {
         ListNode temp;
 
         // While both or one of lists exist
-        while (l1 != null || l2 != null) {
-            if(l1 != null && l2 != null) {
-                if(l1.val <= l2.val) {
-                    // If both lists exist and first node non greater then second
-                    // update temporary value and change pointer to the next node in the first list
-                    temp = l1;
-                    l1 = l1.next;
-                }
-
-                // Or if second node is greater then first
-                // update temporary value and change pointer to the next node in the second list
-                else {
-                    temp = l2;
-                    l2 = l2.next;
-                }
-            }
-
-            // If at least the first node exists
-            // update temporary value and change pointer to the next node in the first list
-            else if(l1 != null) {
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                // If both lists exist and first node non greater then second
+                // update temporary value and change pointer to the next node in the first list
                 temp = l1;
                 l1 = l1.next;
             }
 
-            // If at least the second node exists
+            // Or if second node is greater then first
             // update temporary value and change pointer to the next node in the second list
             else {
                 temp = l2;
@@ -62,7 +46,7 @@ public class MergeTwoSortedLists {
             }
 
             // If this is the first node then set it as head of the resultant list
-            if(res == null) {
+            if (res == null) {
                 res = temp;
             }
 
@@ -73,6 +57,24 @@ public class MergeTwoSortedLists {
 
             // Set prev for next insertion
             prev = temp;
+        }
+
+        // If exists, attach the remaining first list to the rest of resulting list
+        if (l1 != null) {
+            if (prev != null) {
+                prev.next = l1;
+            } else {
+                res = l1;
+            }
+        }
+
+        // If exists, attach the remaining second list to the rest of resulting list
+        else if (l2 != null) {
+            if (prev != null) {
+                prev.next = l2;
+            } else {
+                res = l2;
+            }
         }
 
         // Return head of the resultant list
