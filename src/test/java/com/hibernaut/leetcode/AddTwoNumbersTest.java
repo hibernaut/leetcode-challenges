@@ -1,6 +1,7 @@
 package com.hibernaut.leetcode;
 
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class AddTwoNumbersTest {
@@ -27,7 +28,7 @@ public class AddTwoNumbersTest {
         ListNode temp2 = AddTwoNumbers.addTwoNumbers(node1, node4);
 
         // Checking loop
-        while(temp1 != null && temp2 != null) {
+        while (temp1 != null && temp2 != null) {
             assertEquals(temp1.val, temp2.val);
             temp1 = temp1.next;
             temp2 = temp2.next;
@@ -37,20 +38,20 @@ public class AddTwoNumbersTest {
     @Test
     public void test2() {
         // First list
-        ListNode node2 = new ListNode(0);
+        ListNode node1 = new ListNode();
 
         // Second list
-        ListNode node1 = new ListNode(0);
+        ListNode node2 = new ListNode();
 
         // Summing list
-        ListNode sumNode1 = new ListNode(0);
+        ListNode sumNode1 = new ListNode();
 
         // Initialize temporary variables
         ListNode temp1 = sumNode1;
         ListNode temp2 = AddTwoNumbers.addTwoNumbers(node1, node2);
 
         // Checking loop
-        while(temp1 != null && temp2 != null) {
+        while (temp1 != null && temp2 != null) {
             assertEquals(temp1.val, temp2.val);
             temp1 = temp1.next;
             temp2 = temp2.next;
@@ -91,7 +92,7 @@ public class AddTwoNumbersTest {
         ListNode temp2 = AddTwoNumbers.addTwoNumbers(node1, node8);
 
         // Checking loop
-        while(temp1 != null && temp2 != null) {
+        while (temp1 != null && temp2 != null) {
             assertEquals(temp1.val, temp2.val);
             temp1 = temp1.next;
             temp2 = temp2.next;
